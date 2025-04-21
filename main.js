@@ -126,4 +126,6 @@ console.log(listResult);
 const filteredList = myList.filter((item) => item % 2 == 0);
 console.log(filteredList);
 
+// const result = age > 20 ? "you are adult" : "you are child";
+
 // sort, find, every, some, fill, includes
