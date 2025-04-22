@@ -22,3 +22,11 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## JSX
 - .jsx extension, JS/HTML code
+
+
+# Conventions
+1. React component -> Pascal case: HelloWorld
+2. JS function -> Camel case: helloWorld
+
+// Snake case -> hello_world
+// Sentence case -> hello world
