@@ -129,3 +129,22 @@ console.log(filteredList);
 // const result = age > 20 ? "you are adult" : "you are child";
 
 // sort, find, every, some, fill, includes
+
+const title = document.getElementById("title");
+
+title.textContent = "My Title";
+
+title.style.color = "red";
+
+title.style.background = "#f66f6f";
+
+console.log(title);
+
+const listElement = document.getElementById("list");
+
+for (let i = 0; i < myList.length; i++) {
+  const listItem = document.createElement("li");
+  listItem.textContent = myList[i];
+
+  listElement.appendChild(listItem);
+}
