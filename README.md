@@ -23,6 +23,13 @@ If you are developing a production application, we recommend using TypeScript wi
 ## JSX
 - .jsx extension, JS/HTML code
 
+## Hooks
+- Special function, that enables us to implement state management in functional component.
+1. useState()
+2. useEffect()
+3. useRef()
+
+use -> hooks
 
 # Conventions
 1. React component -> Pascal case: HelloWorld

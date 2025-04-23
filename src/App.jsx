@@ -1,13 +1,29 @@
+import { useRef, useState } from "react";
 import Title from "./components/Title";
+import { useEffect } from "react";
+import ComponentA from "./components/ComponentA";
 
 function App() {
+  const [count, setCount] = useState(10);
+
+  const ref = useRef();
+
+  useEffect(() => {
+    console.log("hello");
+    // console.log(ref.current);
+  }, [count]);
+
   return (
-    <div>
-      <Title label="Hello" />
-      <Title label="This is new title" />
-      <Title label="New title" />
-      <Title label="Just testing" />
-      <Title label="New label from last title" subtitle="this is subtitle" />
+    <div ref={ref}>
+      <ComponentA count={count} />
+      <Title label={"This is title"} />
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        Click me
+      </button>
     </div>
   );
 }
