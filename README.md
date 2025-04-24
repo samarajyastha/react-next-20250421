@@ -37,3 +37,9 @@ use -> hooks
 
 // Snake case -> hello_world
 // Sentence case -> hello world
+
+# Redux
+## 3 core concepts
+1. Store : Save/store state, only one store, to maintain single source of truth
+2. Action : Function dispatched on user interaction, event
+3. Reducer : Binds store and action, responsible for UI transition, stores state value
