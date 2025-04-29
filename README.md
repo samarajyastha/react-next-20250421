@@ -61,3 +61,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 6. Private folders
 /src/app/_components
+
+7. Route groups
+/src/app/(auth)/...
+
+## Layouts
+- UI components that are shared among pages.
+
+## Nested layout
