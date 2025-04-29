@@ -36,3 +36,28 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 # E-commerce website on Next.js
+
+## Routing
+- File based routing
+- All routes must be inside /src/app directory
+- Every route must have page.js
+- Every folder represents url segment
+
+1. Simple route
+/src/app/about/page.js
+
+2. Nested route
+/src/app/courses/designing/photoshop/page.js
+/src/app/courses/designing/web-design/page.js
+
+3. Dynamic routes
+/src/app/products/[productId]/page.js
+
+4. Nested dynamic routes
+/src/app/products/[productId]/reviews/[reviewId]/page.js
+
+5. Catch all segments
+/src/app/news/[...slug]/page.js
+
+6. Private folders
+/src/app/_components
