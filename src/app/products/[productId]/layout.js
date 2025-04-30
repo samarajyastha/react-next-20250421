@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function ProductDetailsLayout({ children }) {
@@ -6,6 +7,7 @@ function ProductDetailsLayout({ children }) {
       {children}
       <div className="my-5 bg-slate-900 h-52">
         <h2 className="text-2xl">Related Products</h2>
+        <Link href={"/products/33"}>Product 33</Link>
       </div>
     </div>
   );
