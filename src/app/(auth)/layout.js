@@ -1,7 +1,8 @@
 function AuthLayout({ children }) {
   return (
     <div>
-      <div>Auth pages</div>
+      <h1 className="text-5xl py-5">Auth pages</h1>
+
       {children}
     </div>
   );

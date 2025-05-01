@@ -69,3 +69,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - UI components that are shared among pages.
 
 ## Nested layout
+
+# Files
+- page.js
+- layout.js
+- not-found.js
+- template.js : similar to layout.js file but it doesn't preserve state
+- loading.js
