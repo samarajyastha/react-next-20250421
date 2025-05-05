@@ -2,8 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logo from "../assets/images/logo.png";
-import userImg from "../assets/images/user.jpg";
+import logo from "@/assets/images/logo.png";
+import userImg from "@/assets/images/user.jpg";
 import navLinks from "@/constants/navLinks.";
 import Navlink from "./Navlink";
 

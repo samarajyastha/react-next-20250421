@@ -76,3 +76,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - not-found.js
 - template.js : similar to layout.js file but it doesn't preserve state
 - loading.js
+- error.js (client component)
+- global-error.js: To catch error of root level layouts, only works in prod
+
+## Params & Search params
+- params resolves into route parameters
+- searchParams resolves into query parameters
+
+/news/sports?year=2025&game=football
+/news -> route
+/sports -> route params
+?year=2025&game=football -> Query params

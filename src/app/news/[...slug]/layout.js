@@ -1,4 +1,4 @@
-function NewsLayout({ children }) {
+async function NewsLayout({ children }) {
   return (
     <div>
       {children}

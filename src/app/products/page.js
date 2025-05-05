@@ -1,10 +1,8 @@
+import { getProducts } from "@/api/products";
 import ProductCard from "@/components/products/Card";
-import axios from "axios";
 
 async function ProductsPage() {
-  const response = await axios.get(
-    "https://ecommerce-test-api-green.vercel.app/api/products"
-  );
+  const response = await getProducts();
 
   const products = response?.data;
 
