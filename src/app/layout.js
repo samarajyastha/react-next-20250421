@@ -3,8 +3,11 @@ import "./globals.css";
 import config from "@/config";
 
 export const metadata = {
-  title: config.appName,
-  description: "Ecommerce app on Next.js",
+  title: {
+    default: config.appName,
+    template: `${config.appName} | %s`,
+  },
+  description: "E-commerce app on Next.js",
   keywords: "E-commerce, online shopping",
 };
 

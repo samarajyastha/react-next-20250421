@@ -87,3 +87,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 /news -> route
 /sports -> route params
 ?year=2025&game=football -> Query params
+
+## Metadata
+- Metadata api used to define metadata in each page.
+- Used for search engine
+- layout.js & page.js

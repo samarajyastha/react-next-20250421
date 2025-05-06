@@ -11,8 +11,8 @@ function Header() {
   const isAuth = false;
 
   return (
-    <header>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <header className="sticky top-0 bg-primary-500">
+      <nav className="bg-white border-gray-200 shadow">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             href="/"
@@ -25,7 +25,7 @@ function Header() {
               height={100}
               width={100}
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap">
               E-Bazaar
             </span>
           </Link>
@@ -41,7 +41,7 @@ function Header() {
             ) : (
               <Link
                 href={"/login"}
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center "
               >
                 Login
               </Link>
@@ -51,7 +51,7 @@ function Header() {
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-cta"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
               {navLinks.map((navLink, index) =>
                 isAuth || !navLink.isAuth ? (
                   <Navlink navLink={navLink} key={index} />

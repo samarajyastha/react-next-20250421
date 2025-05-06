@@ -23,10 +23,8 @@ function Navlink({ navLink }) {
       <Link
         href={navLink.route}
         className={`${
-          isActive
-            ? "text-blue-700 dark:text-blue-500"
-            : "text-gray-900 dark:text-white"
-        } block py-2 px-3 md:p-0 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+          isActive ? "text-blue-700 " : "text-gray-900 "
+        } block py-2 px-3 md:p-0 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 `}
       >
         {navLink.label}
       </Link>
@@ -35,14 +33,14 @@ function Navlink({ navLink }) {
         <div
           className={`${
             showDropdown ? "block" : "hidden"
-          } absolute top-6 z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600`}
+          } absolute top-6 z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44`}
         >
-          <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
+          <ul className="py-2 text-sm text-gray-700 ">
             {navLink.subMenu.map((menu, menuIndex) => (
               <li key={menuIndex}>
                 <Link
                   href={`${navLink.route}/${menu.route}`}
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  className="block px-4 py-2 hover:bg-gray-100 "
                 >
                   {menu.label}
                 </Link>
