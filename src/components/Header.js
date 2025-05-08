@@ -3,12 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 import logo from "@/assets/images/logo.png";
-import userImg from "@/assets/images/user.jpg";
 import navLinks from "@/constants/navLinks.";
 import Navlink from "./Navlink";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "@/redux/auth/authSlice";
+import { IoLogOutOutline } from "react-icons/io5";
 
 function Header() {
-  const isAuth = false;
+  const { user } = useSelector((state) => state);
+
+  const dispatch = useDispatch();
 
   return (
     <header className="sticky top-0 bg-primary-500">
@@ -30,14 +34,13 @@ function Header() {
             </span>
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {isAuth ? (
-              <Image
-                height={32}
-                width={32}
-                className="w-8 h-8 rounded-full"
-                src={userImg}
-                alt="user photo"
-              />
+            {user ? (
+              <div className="flex gap-2 items-center">
+                <h4 className="font-semibold">Hi! {user.name}</h4>
+                <button onClick={() => dispatch(logoutUser())} className="bg-slate-700 text-white p-2 rounded">
+                  <IoLogOutOutline />
+                </button>
+              </div>
             ) : (
               <Link
                 href={"/login"}
@@ -53,7 +56,7 @@ function Header() {
           >
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
               {navLinks.map((navLink, index) =>
-                isAuth || !navLink.isAuth ? (
+                user || !navLink.isAuth ? (
                   <Navlink navLink={navLink} key={index} />
                 ) : null
               )}

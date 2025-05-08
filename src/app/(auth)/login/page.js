@@ -1,15 +1,15 @@
 "use client";
 
-import { login } from "@/api/auth";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { EMAIL_REGEX } from "@/constants/regex";
+import { loginUser } from "@/redux/auth/authActions";
+import { useDispatch, useSelector } from "react-redux";
 
 function LoginPage() {
-  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -18,23 +18,24 @@ function LoginPage() {
     formState: { errors },
   } = useForm();
 
+  const { user, error, loading } = useSelector((state) => state);
+
   const router = useRouter();
 
-  async function submitForm(data) {
-    setLoading(true);
+  const dispatch = useDispatch();
 
-    try {
-      await login(data);
+  function submitForm(data) {
+    dispatch(loginUser(data));
+  }
 
-      router.push("/");
-    } catch (error) {
-      toast.error(error.response.data, {
+  useEffect(() => {
+    if (user) return router.push("/");
+
+    if (error)
+      toast.error(error, {
         autoClose: 750,
       });
-    } finally {
-      setLoading(false);
-    }
-  }
+  }, [user, error]);
 
   return (
     <div>
