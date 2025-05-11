@@ -23,8 +23,8 @@ function Navlink({ navLink }) {
       <Link
         href={navLink.route}
         className={`${
-          isActive ? "text-blue-700 " : "text-gray-900 "
-        } block py-2 px-3 md:p-0 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 `}
+          isActive ? "text-primary" : "text-gray-900 dark:text-white"
+        } block py-2 px-3 md:p-0 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary`}
       >
         {navLink.label}
       </Link>

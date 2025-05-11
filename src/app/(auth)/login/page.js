@@ -18,7 +18,7 @@ function LoginPage() {
     formState: { errors },
   } = useForm();
 
-  const { user, error, loading } = useSelector((state) => state);
+  const { user, error, loading } = useSelector((state) => state.auth);
 
   const router = useRouter();
 
@@ -91,7 +91,7 @@ function LoginPage() {
             type="submit"
             disabled={loading}
             value={loading ? "Submitting..." : "Login"}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-1 rounded disabled:opacity-80"
+            className="w-full bg-primary hover:opacity-90 text-white py-1 rounded disabled:opacity-80"
           />
         </div>
       </form>

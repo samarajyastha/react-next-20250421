@@ -54,7 +54,7 @@ async function ProductByIdPage({ params }) {
         </div>
 
         <div className="py-2">
-          <span className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm ">
+          <span className="bg-blue-100 text-primary text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm ">
             {product.category}
           </span>
           <span className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm ">

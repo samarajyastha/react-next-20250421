@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 import config from "@/config";
 import AppProvider from "@/redux/provider";
+import MainLayout from "@/layouts/MainLayout";
 
 export const metadata = {
   title: {
@@ -14,11 +15,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" >
       <body>
         <AppProvider>
-          <Header />
-          {children}
+          <MainLayout>
+            <Header />
+            {children}
+          </MainLayout>
         </AppProvider>
       </body>
     </html>

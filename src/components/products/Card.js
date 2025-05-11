@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import placeholder from "@/assets/images/product-placeholder.jpeg";
 import Link from "next/link";
+import AddToCart from "./AddToCart";
 
 function ProductCard({ product }) {
   return (
@@ -19,7 +20,7 @@ function ProductCard({ product }) {
       </Link>
       <div className="py-4 px-5">
         <div className="mb-2">
-          <span className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm">
+          <span className="bg-blue-100 text-primary text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm">
             {product.category}
           </span>
           <span className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm ">
@@ -32,9 +33,7 @@ function ProductCard({ product }) {
         <p className="py-2 text-lg">Rs. {product.price}</p>
       </div>
       <div className="px-4">
-        <button className="rounded px-4 py-2 w-full bg-blue-600 text-white">
-          Add to cart
-        </button>
+        <AddToCart />
       </div>
     </div>
   );

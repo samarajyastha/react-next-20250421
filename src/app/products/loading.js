@@ -3,7 +3,7 @@ function Loader() {
     <div className="w-full h-max rounded-xl animate-pulse duration-150 ease-in-out shadow-md">
       <div className="w-full h-36 bg-slate-300 rounded-t-xl"></div>
       <div className="pt-3 pb-5 px-5">
-        <span className="bg-blue-200 text-blue-800 text-xs font-medium me-2 px-10 py-0.5 rounded-sm "></span>
+        <span className="bg-blue-200 text-primary text-xs font-medium me-2 px-10 py-0.5 rounded-sm "></span>
         <span className="bg-gray-200 text-gray-800 text-xs font-medium me-2 px-10 py-0.5 rounded-sm "></span>
         <h2 className="h-7 w-4/5 bg-gray-500 mt-3"></h2>
 

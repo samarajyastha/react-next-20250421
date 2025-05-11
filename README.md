@@ -92,3 +92,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Metadata api used to define metadata in each page.
 - Used for search engine
 - layout.js & page.js
+
+## Client side rendering
+- Generate HTML on client (browser)
+
+## Server side rendering
+- Generate HTML on server
+
+## RSC - React server component
+1. Client component - Rendered in browser, can also be rendered in server
+    - "use client"
+    - Browser API access
+    - State management
+    - User interactivity
+2. Server component - Rendered in server, made to operate in server
+    - data fetch
+    - direct access to server
