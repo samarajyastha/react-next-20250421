@@ -11,6 +11,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { toggleTheme } from "@/redux/userPreference/userPreferenceSlice";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { LIGHT_THEME } from "@/constants/theme";
+import AuthUser from "./AuthUser";
 
 function Header() {
   const { user } = useSelector((state) => state.auth);
@@ -19,7 +20,7 @@ function Header() {
   const dispatch = useDispatch();
 
   return (
-    <header className="sticky top-0 bg-primary-500">
+    <header className="sticky top-0 bg-primary-500 z-50">
       <nav className="bg-white border-gray-200 shadow dark:bg-slate-800 dark:text-white">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
@@ -39,7 +40,7 @@ function Header() {
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
-              className="px-2 py-1 rounded-lg border mr-2"
+              className="px-2 py-1 mr-2"
               title={theme == LIGHT_THEME ? "Dark mode" : "Light mode"}
               onClick={() => dispatch(toggleTheme())}
             >
@@ -50,15 +51,7 @@ function Header() {
               )}
             </button>
             {user ? (
-              <div className="flex gap-2 items-center">
-                <h4 className="font-semibold">Hi! {user.name}</h4>
-                <button
-                  onClick={() => dispatch(logoutUser())}
-                  className="bg-primary text-white p-2 rounded-lg"
-                >
-                  <IoLogOutOutline />
-                </button>
-              </div>
+              <AuthUser user={user} />
             ) : (
               <Link
                 href={"/login"}
