@@ -3,12 +3,20 @@ import Link from "next/link";
 import { GiPieChart } from "react-icons/gi";
 import { FaUsersCog } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
 
 const sidebarMenu = [
   {
     label: "Dashboard",
     route: "/dashboard",
     icon: <GiPieChart className="w-5 h-5 text-gray-500 dark:text-white" />,
+  },
+  {
+    label: "Product Management",
+    route: "/product-management",
+    icon: (
+      <MdOutlineLocalGroceryStore className="w-5 h-5 text-gray-500 dark:text-white" />
+    ),
   },
   {
     label: "User Management",

@@ -1,12 +1,19 @@
-import config from "@/config";
-import axios from "axios";
+import api from "./api";
 
 async function getProducts() {
-  return await axios.get(`${config.apiUrl}/api/products`);
+  return await api.get(`/api/products`);
+}
+
+async function getProductByUser() {
+  return await api.get(`/api/products/users`);
 }
 
 async function getProductById(id) {
-  return await axios.get(`${config.apiUrl}/api/products/${id}`);
+  return await api.get(`/api/products/${id}`);
 }
 
-export { getProducts, getProductById };
+async function getCategories() {
+  return await api.get(`/api/products/categories`);
+}
+
+export { getProducts, getProductById, getProductByUser, getCategories };
