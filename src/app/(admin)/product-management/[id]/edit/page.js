@@ -15,6 +15,7 @@ async function EditProductPage({ params }) {
           Edit <span className="italic">{response.data?.name}</span>
         </h2>
         <ProductForm
+          id={id}
           product={response.data}
           categories={categoriesResponse.data}
         />

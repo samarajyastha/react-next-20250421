@@ -4,6 +4,7 @@ import { IoIosCog } from "react-icons/io";
 import { IoTrashOutline } from "react-icons/io5";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { BsImage } from "react-icons/bs";
+import placeholder from "@/assets/images/product-placeholder.jpeg";
 
 function ProductsTable({ products }) {
   return (
@@ -44,7 +45,7 @@ function ProductsTable({ products }) {
             >
               <td className="px-6 py-4">
                 <Image
-                  src={product.imageUrls[0]}
+                  src={product.imageUrls?.[0] ?? placeholder}
                   alt={product.name}
                   height={100}
                   width={100}

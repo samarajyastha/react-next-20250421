@@ -1,7 +1,13 @@
 import api from "./api";
+import axios from "axios";
+import config from "@/config";
+
+async function createProduct(data) {
+  return await api.post(`/api/products`, data);
+}
 
 async function getProducts() {
-  return await api.get(`/api/products`);
+  return await axios.get(`${config.apiUrl}/api/products`);
 }
 
 async function getProductByUser() {
@@ -9,11 +15,22 @@ async function getProductByUser() {
 }
 
 async function getProductById(id) {
-  return await api.get(`/api/products/${id}`);
+  return await axios.get(`${config.apiUrl}/api/products/${id}`);
 }
 
 async function getCategories() {
-  return await api.get(`/api/products/categories`);
+  return await axios.get(`${config.apiUrl}/api/products/categories`);
 }
 
-export { getProducts, getProductById, getProductByUser, getCategories };
+async function updateProduct(id, data) {
+  return await api.put(`/api/products/${id}`, data);
+}
+
+export {
+  createProduct,
+  getCategories,
+  getProductById,
+  getProductByUser,
+  getProducts,
+  updateProduct,
+};

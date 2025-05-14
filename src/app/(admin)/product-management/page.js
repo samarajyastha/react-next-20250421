@@ -1,9 +1,21 @@
-import { getProducts } from "@/api/products";
+"use client";
+
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { getProductByUser } from "@/api/products";
 import ProductsTable from "@/components/products/Table";
 import Link from "next/link";
 
-async function ProductManagementPage() {
-  const response = await getProducts();
+function ProductManagementPage() {
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProductByUser()
+      .then((response) => setProducts(response.data))
+      .catch((error) => toast.error(error.response.data))
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <section className="p-5">
@@ -18,7 +30,7 @@ async function ProductManagementPage() {
           Add Product +
         </Link>
       </div>
-      <ProductsTable products={response.data} />
+      {loading ? <div>Loading...</div> : <ProductsTable products={products} />}
     </section>
   );
 }
