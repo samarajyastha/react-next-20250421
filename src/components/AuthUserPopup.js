@@ -4,6 +4,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { logoutUser } from "@/redux/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { allowedAdminRoles } from "@/helpers/auth";
+import { DASHBOARD_ROUTE } from "@/constants/routes";
 
 function AuthUserPopup({ user, setShowPopup }) {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function AuthUserPopup({ user, setShowPopup }) {
       <h4 className="font-medium text-lg">Hi! {user.name}</h4>
       {isAllowed && (
         <Link
-          href="/dashboard"
+          href={DASHBOARD_ROUTE}
           className="bg-gray-200 block text-black my-2 py-1 px-4 rounded-md w-full hover:bg-gray-300"
         >
           Dashboard

@@ -6,6 +6,10 @@ async function createProduct(data) {
   return await api.post(`/api/products`, data);
 }
 
+async function deleteProduct(id) {
+  return await api.delete(`/api/products/${id}`);
+}
+
 async function getProducts() {
   return await axios.get(`${config.apiUrl}/api/products`);
 }
@@ -28,6 +32,7 @@ async function updateProduct(id, data) {
 
 export {
   createProduct,
+  deleteProduct,
   getCategories,
   getProductById,
   getProductByUser,

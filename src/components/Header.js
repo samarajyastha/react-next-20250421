@@ -12,6 +12,7 @@ import { toggleTheme } from "@/redux/userPreference/userPreferenceSlice";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { LIGHT_THEME } from "@/constants/theme";
 import AuthUser from "./AuthUser";
+import { LOGIN_ROUTE } from "@/constants/routes";
 
 function Header() {
   const { user } = useSelector((state) => state.auth);
@@ -54,7 +55,7 @@ function Header() {
               <AuthUser user={user} />
             ) : (
               <Link
-                href={"/login"}
+                href={LOGIN_ROUTE}
                 className="text-white bg-primary hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center "
               >
                 Login

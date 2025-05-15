@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { allowedAdminRoles } from "@/helpers/auth";
+import { LOGIN_ROUTE } from "@/constants/routes";
 
 function AdminLayout({ children }) {
   const { user } = useSelector((state) => state.auth);
@@ -12,12 +13,12 @@ function AdminLayout({ children }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) router.push("/");
+    if (!user) router.push(LOGIN_ROUTE);
 
     //allow only MERCHANT and ADMIN roles
     const isAllowed = allowedAdminRoles(user?.roles);
 
-    if (!isAllowed) router.push("/");
+    if (!isAllowed) router.push(LOGIN_ROUTE);
   }, [router, user]);
 
   return (

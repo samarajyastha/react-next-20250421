@@ -1,12 +1,22 @@
+import DeleteProductModal from "./Modal";
 import Image from "next/image";
 import Link from "next/link";
+import placeholder from "@/assets/images/product-placeholder.jpeg";
+import { BsImage } from "react-icons/bs";
 import { IoIosCog } from "react-icons/io";
 import { IoTrashOutline } from "react-icons/io5";
 import { MdOutlineModeEdit } from "react-icons/md";
-import { BsImage } from "react-icons/bs";
-import placeholder from "@/assets/images/product-placeholder.jpeg";
+import { useState } from "react";
 
 function ProductsTable({ products }) {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  function removeProduct(product) {
+    setShowModal(true);
+    setSelectedProduct(product);
+  }
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg border-slate-600 dark:border-2">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -49,7 +59,7 @@ function ProductsTable({ products }) {
                   alt={product.name}
                   height={100}
                   width={100}
-                  className="h-10 w-auto"
+                  className="h-auto w-12"
                 />
               </td>
               <th
@@ -70,7 +80,10 @@ function ProductsTable({ products }) {
                   >
                     <MdOutlineModeEdit className="h-4 w-4 text-white" />
                   </Link>
-                  <button className="bg-red-600 dark:bg-red-500 hover:opacity-90 p-1 rounded">
+                  <button
+                    className="bg-red-600 dark:bg-red-500 hover:opacity-90 p-1 rounded"
+                    onClick={() => removeProduct(product)}
+                  >
                     <IoTrashOutline className="h-4 w-4 text-white" />
                   </button>
                 </div>
@@ -79,6 +92,12 @@ function ProductsTable({ products }) {
           ))}
         </tbody>
       </table>
+      <DeleteProductModal
+        product={selectedProduct}
+        setProduct={setSelectedProduct}
+        setShowModal={setShowModal}
+        showModal={showModal}
+      />
     </div>
   );
 }
