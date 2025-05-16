@@ -1,6 +1,7 @@
 import api from "./api";
 import axios from "axios";
 import config from "@/config";
+import getFormattedParams from "@/helpers/formatSearchParams";
 
 async function createProduct(data) {
   return await api.post(`/api/products`, data);
@@ -10,8 +11,10 @@ async function deleteProduct(id) {
   return await api.delete(`/api/products/${id}`);
 }
 
-async function getProducts() {
-  return await axios.get(`${config.apiUrl}/api/products`);
+async function getProducts(searchParams) {
+  const query = getFormattedParams(searchParams);
+
+  return await axios.get(`${config.apiUrl}/api/products?${query}`);
 }
 
 async function getProductByUser() {
