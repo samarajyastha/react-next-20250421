@@ -1,13 +1,11 @@
 function getFormattedParams(searchParams) {
   let query = "";
 
-  const { sort, min, max } = searchParams;
+  Object.entries(searchParams).map((params) => {
+    const [key, value] = params;
 
-  if (sort) query = `${query == "" ? "" : query + "&"}sort=${sort}`;
-
-  if (min) query = `${query == "" ? "" : query + "&"}min=${min}`;
-
-  if (max) query = `${query == "" ? "" : query + "&"}max=${max}`;
+    if (value) query = `${query == "" ? "" : query + "&"}${key}=${value}`;
+  });
 
   return query;
 }

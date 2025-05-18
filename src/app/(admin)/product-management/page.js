@@ -21,7 +21,7 @@ function ProductManagementPage() {
   useEffect(() => {
     getProductByUser()
       .then((response) => setProducts(response.data))
-      .catch((error) => toast.error(error.response.data))
+      .catch((error) => toast.error(error.response.data, { autoClose: 750 }))
       .finally(() => {
         setLoading(false);
         dispatch(setDeleteStatus(null));
@@ -33,7 +33,7 @@ function ProductManagementPage() {
 
     getProducts()
       .then((response) => setProducts(response.data))
-      .catch((error) => toast.error(error.response.data))
+      .catch((error) => toast.error(error.response.data, { autoClose: 750 }))
       .finally(() => setLoading(false));
   }
 

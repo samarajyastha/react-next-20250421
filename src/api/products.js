@@ -25,6 +25,10 @@ async function getProductById(id) {
   return await axios.get(`${config.apiUrl}/api/products/${id}`);
 }
 
+async function getBrands() {
+  return await axios.get(`${config.apiUrl}/api/products/brands`);
+}
+
 async function getCategories() {
   return await axios.get(`${config.apiUrl}/api/products/categories`);
 }
@@ -36,6 +40,7 @@ async function updateProduct(id, data) {
 export {
   createProduct,
   deleteProduct,
+  getBrands,
   getCategories,
   getProductById,
   getProductByUser,

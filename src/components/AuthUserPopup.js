@@ -11,6 +11,11 @@ function AuthUserPopup({ user, setShowPopup }) {
 
   const isAllowed = allowedAdminRoles(user?.roles);
 
+  function logout() {
+    dispatch(logoutUser());
+    localStorage.removeItem("authToken");
+  }
+
   return (
     <div
       className="absolute top-10 right-0 w-auto px-4 py-3 rounded-lg shadow-md bg-white whitespace-nowrap dark:bg-slate-700"
@@ -32,7 +37,7 @@ function AuthUserPopup({ user, setShowPopup }) {
         Profile
       </Link>
       <button
-        onClick={() => dispatch(logoutUser())}
+        onClick={logout}
         className="bg-primary text-white py-1 px-4 rounded-md w-full flex items-center justify-between hover:opacity-90"
       >
         <span>Logout</span>
