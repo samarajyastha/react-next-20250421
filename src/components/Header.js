@@ -2,21 +2,21 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import AuthUser from "./AuthUser";
+import Navlink from "./Navlink";
 import logo from "@/assets/images/logo.png";
 import navLinks from "@/constants/navLinks.";
-import Navlink from "./Navlink";
-import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "@/redux/auth/authSlice";
-import { IoLogOutOutline } from "react-icons/io5";
-import { toggleTheme } from "@/redux/userPreference/userPreferenceSlice";
-import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { HiOutlineShoppingCart } from "react-icons/hi";
 import { LIGHT_THEME } from "@/constants/theme";
-import AuthUser from "./AuthUser";
-import { LOGIN_ROUTE } from "@/constants/routes";
+import { CART_ROUTE, LOGIN_ROUTE } from "@/constants/routes";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { toggleTheme } from "@/redux/userPreference/userPreferenceSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function Header() {
   const { user } = useSelector((state) => state.auth);
   const { theme } = useSelector((state) => state.userPreference);
+  const { products } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 
@@ -41,7 +41,7 @@ function Header() {
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
-              className="px-2 py-1 mr-2"
+              className="px-2 py-1"
               title={theme == LIGHT_THEME ? "Dark mode" : "Light mode"}
               onClick={() => dispatch(toggleTheme())}
             >
@@ -51,6 +51,14 @@ function Header() {
                 <MdOutlineLightMode />
               )}
             </button>
+            <div className="relative flex items-center justify-center px-2 py-1 mr-2">
+              <Link href={CART_ROUTE}>
+                <HiOutlineShoppingCart />
+              </Link>
+              <div class="absolute inline-flex items-center justify-center w-4 h-4 text-[0.6rem] text-white bg-red-500 rounded-full top-0 right-0">
+                {products.length}
+              </div>
+            </div>
             {user ? (
               <AuthUser user={user} />
             ) : (

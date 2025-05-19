@@ -17,11 +17,6 @@ const navLinks = [
     isAuth: false,
   },
   {
-    route: "/cart",
-    label: "Cart",
-    isAuth: true,
-  },
-  {
     route: "/news",
     label: "News",
     isAuth: true,
