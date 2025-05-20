@@ -1,4 +1,4 @@
-import { HOME_ROUTE, PRODUCTS_ROUTE } from "./routes";
+import { HOME_ROUTE, ORDERS_ROUTE, PRODUCTS_ROUTE } from "./routes";
 
 const navLinks = [
   {
@@ -15,6 +15,11 @@ const navLinks = [
     route: PRODUCTS_ROUTE,
     label: "Products",
     isAuth: false,
+  },
+  {
+    route: ORDERS_ROUTE,
+    label: "Orders",
+    isAuth: true,
   },
   {
     route: "/news",

@@ -1,4 +1,5 @@
 "use client";
+import Checkout from "@/components/cart/Checkout";
 import CartTable from "@/components/cart/Table";
 import { useSelector } from "react-redux";
 
@@ -14,10 +15,7 @@ function CartPage() {
         {products.length > 0 ? (
           <>
             <CartTable products={products} />
-            <div className="flex items-center text-lg py-5 text-gray-800 dark:text-gray-200 px-2">
-              <span>Total price: </span>
-              <h4 className="font-medium ml-2">Rs. {totalPrice}</h4>
-            </div>
+            <Checkout products={products} totalPrice={totalPrice} />
           </>
         ) : (
           <div>Cart is empty!</div>

@@ -58,10 +58,6 @@ function ProductsDrawer({
     setShowFilters(false);
   }
 
-  useEffect(() => {
-    console.log(brandsFilter);
-  }, [brandsFilter]);
-
   return (
     <div className={showFilters ? "block" : "hidden"}>
       <div

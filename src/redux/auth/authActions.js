@@ -1,10 +1,6 @@
 import { login } from "@/api/auth";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const myAction = async (data) => {
-  await login(data);
-};
-
 export const loginUser = createAsyncThunk(
   "auth/login",
   async (data, { rejectWithValue }) => {
