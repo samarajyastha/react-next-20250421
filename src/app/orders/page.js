@@ -70,7 +70,7 @@ function OrdersPage() {
                   status == orderStatus.status
                     ? "text-primary dark:text-white"
                     : "text-gray-700 dark:text-gray-400"
-                } inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-900 dark:hover:text-gray-300`}
+                } inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-blue-500 dark:hover:text-gray-300`}
               >
                 {orderStatus.icon}
                 <span className="ml-2">{orderStatus.label}</span>
