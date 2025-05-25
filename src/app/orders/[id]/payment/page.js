@@ -4,6 +4,7 @@ import { ORDERS_ROUTE } from "@/constants/routes";
 import { confirmOrder } from "@/api/orders";
 import { useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { ORDER_STATUS_CONFIRMED } from "@/constants/orderStatus";
 
 function OrderPaymentPage() {
   const [loading, setLoading] = useState(true);
@@ -29,8 +30,8 @@ function OrderPaymentPage() {
         setLoading(false);
 
         setTimeout(() => {
-          router.push(ORDERS_ROUTE);
-        }, 2500);
+          router.push(`${ORDERS_ROUTE}?status=${ORDER_STATUS_CONFIRMED}`);
+        }, 1500);
       });
   }, []);
 

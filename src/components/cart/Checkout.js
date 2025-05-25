@@ -27,10 +27,11 @@ function Checkout({ products, totalPrice }) {
       totalPrice,
     })
       .then(() => {
+        router.push(ORDERS_ROUTE);
+
         toast.success("Order created successfully.", {
           autoClose: 750,
           onClose: () => {
-            router.push(ORDERS_ROUTE);
             dispatch(clearCart());
           },
         });

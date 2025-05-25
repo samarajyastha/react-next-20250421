@@ -1,4 +1,6 @@
 function getFormattedParams(searchParams) {
+  if (!searchParams) return "";
+
   let query = "";
 
   Object.entries(searchParams).map((params) => {

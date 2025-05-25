@@ -4,16 +4,21 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { logoutUser } from "@/redux/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { allowedAdminRoles } from "@/helpers/auth";
-import { DASHBOARD_ROUTE } from "@/constants/routes";
+import { DASHBOARD_ROUTE, LOGIN_ROUTE } from "@/constants/routes";
+import { useRouter } from "next/navigation";
 
 function AuthUserPopup({ user, setShowPopup }) {
   const dispatch = useDispatch();
 
   const isAllowed = allowedAdminRoles(user?.roles);
 
+  const router = useRouter();
+
   function logout() {
     dispatch(logoutUser());
     localStorage.removeItem("authToken");
+
+    router.push(LOGIN_ROUTE);
   }
 
   return (
