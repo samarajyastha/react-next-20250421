@@ -2,12 +2,18 @@
 import { getAllUsers } from "@/api/users";
 import Spinner from "@/components/Spinner";
 import UsersTable from "@/components/users/Table";
+import { setUserStatus } from "@/redux/auth/authSlice";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 function UserManagementPage() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
+
+  const { status } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setLoading(true);
@@ -17,8 +23,9 @@ function UserManagementPage() {
       .catch((error) => toast.error(error.response.data, { autoClose: 750 }))
       .finally(() => {
         setLoading(false);
+        dispatch(setUserStatus(null));
       });
-  }, []);
+  }, [status, dispatch]);
 
   return (
     <section className="p-5">

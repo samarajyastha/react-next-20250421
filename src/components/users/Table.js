@@ -1,5 +1,8 @@
+import DeleteUserButton from "./DeleteButton";
+import Link from "next/link";
 import { IoIosCog } from "react-icons/io";
-import DeleteOrderButton from "../orders/DeleteButton";
+import { MdOutlineModeEdit } from "react-icons/md";
+import { USER_MANAGEMENT_ROUTE } from "@/constants/routes";
 
 function UsersTable({ users }) {
   return (
@@ -44,18 +47,23 @@ function UsersTable({ users }) {
               >
                 {index + 1}.
               </th>
-              <td className="px-6 py-4">{user?.name}</td>
-              <td className="px-6 py-4">{user?.email}</td>
-              <td className="px-6 py-4">{user?.phone}</td>
+              <td className="px-6 py-4">{user.name}</td>
+              <td className="px-6 py-4">{user.email}</td>
+              <td className="px-6 py-4">{user.phone}</td>
               <td className="px-6 py-4">
                 {user?.address.city}, {user?.address.province}
               </td>
-              <td className="px-6 py-4">{user?.roles?.join(", ")}</td>
+              <td className="px-6 py-4">{user.roles?.join(", ")}</td>
 
               <td className="px-6 py-4">
                 <div className="flex items-center justify-center gap-2">
-                  <button>Edit</button>
-                  <button>Delete</button>
+                  <Link
+                    href={`${USER_MANAGEMENT_ROUTE}/${user.id}/edit`}
+                    className="bg-blue-600 dark:bg-blue-500 hover:opacity-90 p-1 rounded inline-block"
+                  >
+                    <MdOutlineModeEdit className="h-4 w-4 text-white" />
+                  </Link>
+                  <DeleteUserButton id={user.id} />
                 </div>
               </td>
             </tr>

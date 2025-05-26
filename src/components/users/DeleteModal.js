@@ -1,13 +1,13 @@
 import Spinner from "../Spinner";
 import { IoAlertCircleOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
-import { deleteOrder } from "@/api/orders";
+import { deleteUser } from "@/api/users";
+import { setUserStatus } from "@/redux/auth/authSlice";
 import { toast } from "react-toastify";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setOrderStatus } from "@/redux/order/orderSlice";
+import { useState } from "react";
 
-function DeleteOrderModal({ showModal = false, setShowModal, orderId }) {
+function DeleteUserModal({ showModal = false, setShowModal, userId }) {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
@@ -15,10 +15,10 @@ function DeleteOrderModal({ showModal = false, setShowModal, orderId }) {
   function confirmDelete() {
     setLoading(true);
 
-    deleteOrder(orderId)
+    deleteUser(userId)
       .then(() => {
-        toast.success("Order deleted successfully!", { autoClose: 750 });
-        dispatch(setOrderStatus("deleted"));
+        dispatch(setUserStatus("deleted"));
+        toast.success("User deleted successfully!", { autoClose: 750 });
       })
       .catch((error) => toast.error(error.response?.data, { autoClose: 750 }))
       .finally(() => {
@@ -41,7 +41,7 @@ function DeleteOrderModal({ showModal = false, setShowModal, orderId }) {
             <IoAlertCircleOutline className="mx-auto mb-4 text-red-600 w-12 h-12" />
 
             <h3 className="text-lg font-normal text-gray-500 dark:text-gray-400 mb-5">
-              Are you sure you want to delete this order?
+              Are you sure you want to delete this user?
             </h3>
             <button
               onClick={confirmDelete}
@@ -64,4 +64,4 @@ function DeleteOrderModal({ showModal = false, setShowModal, orderId }) {
   );
 }
 
-export default DeleteOrderModal;
+export default DeleteUserModal;
