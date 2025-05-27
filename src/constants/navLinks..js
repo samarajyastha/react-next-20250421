@@ -7,11 +7,6 @@ const navLinks = [
     isAuth: false,
   },
   {
-    route: "/about",
-    label: "About",
-    isAuth: false,
-  },
-  {
     route: PRODUCTS_ROUTE,
     label: "Products",
     isAuth: false,

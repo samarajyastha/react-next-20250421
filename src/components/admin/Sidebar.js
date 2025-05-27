@@ -56,7 +56,7 @@ function AdminSidebar() {
             const isActive =
               pathname == menu.route || pathname.startsWith(menu.route);
 
-            if (!user.roles.includes(menu.authRole)) return null;
+            if (!user?.roles.includes(menu.authRole)) return null;
 
             return (
               <li key={index}>

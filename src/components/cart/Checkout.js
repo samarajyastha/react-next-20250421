@@ -4,19 +4,23 @@ import { RxDividerVertical } from "react-icons/rx";
 import { clearCart } from "@/redux/cart/cartSlice";
 import { createOrder } from "@/api/orders";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ORDERS_ROUTE } from "@/constants/routes";
+import { LOGIN_ROUTE, ORDERS_ROUTE } from "@/constants/routes";
 
 function Checkout({ products, totalPrice }) {
   const [loading, setLoading] = useState(false);
+
+  const { user } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
   const router = useRouter();
 
   function checkoutOrder() {
+    if (!user) return router.push(LOGIN_ROUTE);
+
     setLoading(true);
 
     createOrder({
