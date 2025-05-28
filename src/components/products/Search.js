@@ -20,6 +20,7 @@ function SearchProduct() {
     if (productName == "") {
       searchProduct();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productName]);
 
   return (

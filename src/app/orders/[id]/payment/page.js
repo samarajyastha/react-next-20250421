@@ -33,6 +33,7 @@ function OrderPaymentPage() {
           router.push(`${ORDERS_ROUTE}?status=${ORDER_STATUS_CONFIRMED}`);
         }, 1500);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
