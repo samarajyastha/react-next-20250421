@@ -16,25 +16,25 @@ const navLinks = [
     label: "Orders",
     isAuth: true,
   },
-  {
-    route: "/news",
-    label: "News",
-    isAuth: true,
-    subMenu: [
-      {
-        route: "/politics",
-        label: "Politics",
-      },
-      {
-        route: "/sports",
-        label: "Sports",
-      },
-      {
-        route: "/education",
-        label: "Education",
-      },
-    ],
-  },
+  // {
+  //   route: "/news",
+  //   label: "News",
+  //   isAuth: true,
+  //   subMenu: [
+  //     {
+  //       route: "/politics",
+  //       label: "Politics",
+  //     },
+  //     {
+  //       route: "/sports",
+  //       label: "Sports",
+  //     },
+  //     {
+  //       route: "/education",
+  //       label: "Education",
+  //     },
+  //   ],
+  // },
   {
     route: "/contact",
     label: "Contact",
