@@ -1,7 +1,9 @@
 "use client";
+import { PRODUCTS_ROUTE } from "@/constants/routes";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 
 function SearchProduct() {
   const [productName, setProductName] = useState("");
@@ -16,15 +18,13 @@ function SearchProduct() {
     router.push(`?${params.toString()}`);
   }
 
-  useEffect(() => {
-    if (productName == "") {
-      searchProduct();
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [productName]);
+  function clearSearch() {
+    setProductName("");
+    router.push(PRODUCTS_ROUTE);
+  }
 
   return (
-    <div className="max-w-md mx-auto">
+    <div className="w-full mx-auto">
       <div className="relative">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
           <IoIosSearch className="w-4 h-4 text-gray-500 dark:text-gray-400" />
@@ -32,6 +32,7 @@ function SearchProduct() {
         <input
           type="search"
           id="search-product"
+          value={productName}
           className="block w-full px-4 py-2.5 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search products..."
           onChange={(e) => setProductName(e.target.value)}
@@ -42,6 +43,14 @@ function SearchProduct() {
         >
           <IoIosSearch className="w-5 h-5 text-white" />
         </button>
+        {productName && (
+          <button
+            onClick={clearSearch}
+            className="absolute end-9 bottom-1.5 text-sm p-1"
+          >
+            <IoClose className="w-5 h-5 text-primary" />
+          </button>
+        )}
       </div>
     </div>
   );

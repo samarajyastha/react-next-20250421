@@ -18,7 +18,7 @@ async function ProductsPage({ searchParams }) {
 
   return (
     <section className="min-h-screen">
-      <div className="grid grid-cols-[1fr_auto_auto] items-center gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_auto] items-center gap-3">
         <h1 className="text-4xl font-semibold dark:text-white">
           Popular products
         </h1>
