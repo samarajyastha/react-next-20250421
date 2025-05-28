@@ -1,6 +1,7 @@
 import { getBrands, getCategories, getProducts } from "@/api/products";
 import ProductCard from "@/components/products/Card";
 import ProductFilters from "@/components/products/Filters";
+import LoadMoreProducts from "@/components/products/LoadMore";
 import SearchProduct from "@/components/products/Search";
 
 export const metadata = {
@@ -36,6 +37,8 @@ async function ProductsPage({ searchParams }) {
           No products found! Please try different keywords.
         </p>
       )}
+
+      <LoadMoreProducts productCount={products.length} />
     </section>
   );
 }
